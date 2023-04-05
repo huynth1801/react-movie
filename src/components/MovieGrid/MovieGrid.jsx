@@ -28,14 +28,14 @@ const MovieGrid = (props) => {
             response = await tmdbApi.getTvList(tvType.popular, { params });
         }
       } else {
-        const params = { query: keyword };
-        response = await tmdbApi.search(props.category, { params });
+        // const params = { query: keyword, page: 1 };
+        response = await tmdbApi.search(props.category, keyword, page);
       }
       setItems(response.results);
       setTotalPage(response.total_pages);
     };
     getList();
-  }, [props.category, keyword]);
+  }, [props.category, keyword, page]);
 
   // Load more
   const loadMore = async () => {
@@ -54,11 +54,12 @@ const MovieGrid = (props) => {
           response = await tmdbApi.getTvList(tvType.popular, { params });
       }
     } else {
-      const params = {
-        page: page + 1,
-        query: keyword,
-      };
-      response = await tmdbApi.search(props.category, { params });
+      // const params = {
+      //   query: keyword,
+      //   page: page + 1,
+      // };
+      // console.log(params[0]);
+      response = await tmdbApi.search(props.category, keyword, page + 1);
     }
     setItems([...items, ...response.results]);
     setPage(page + 1);

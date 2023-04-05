@@ -32,10 +32,14 @@ const tmdbApi = {
       category[cate] + "/" + id + "/videos" + `?api_key=${configApi.apiKey}`;
     return axiosClient.get(url, { params: {} });
   },
-  search: (cate, params) => {
+  search: (cate, query, page) => {
     const url =
-      "search/" + category[cate] + `?api_key=${configApi.apiKey}` + "?";
-    return axiosClient.get(url, params);
+      "search/" +
+      category[cate] +
+      `?api_key=${configApi.apiKey}` +
+      `&query=${query}` +
+      `&page=${page}`;
+    return axiosClient.get(url, query, page);
   },
   detail: (cate, id, params) => {
     const url = category[cate] + "/" + id + `?api_key=${configApi.apiKey}`;
