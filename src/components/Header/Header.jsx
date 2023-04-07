@@ -2,6 +2,8 @@ import "./Header.scss";
 import logo from "../../assets/img/netflix-icon-26.jpg";
 import { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { DarkModeSwitch } from "react-toggle-dark-mode";
+import useDarkMode from "../../theme/useDarkMode";
 
 const headerNav = [
   {
@@ -19,6 +21,7 @@ const headerNav = [
 ];
 
 const Header = () => {
+  // const [theme, toggleDarkMode] = useDarkMode();
   const { pathname } = useLocation();
   const headerRef = useRef(null);
   const active = headerNav.findIndex((e) => e.path === pathname);
@@ -53,6 +56,15 @@ const Header = () => {
               <Link to={e.path}>{e.display}</Link>
             </li>
           ))}
+          {/* <DarkModeSwitch
+            style={{ marginLeft: "1.5rem" }}
+            checked={theme === "light" ? true : false}
+            onChange={toggleDarkMode}
+            size={30}
+            moonColor="yellow"
+            sunColor="orange"
+            className="theme-mode"
+          /> */}
         </ul>
       </div>
     </div>

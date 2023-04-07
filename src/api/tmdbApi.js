@@ -55,6 +55,16 @@ const tmdbApi = {
       category[cate] + "/" + id + "/similar" + `?api_key=${configApi.apiKey}`;
     return axiosClient.get(url, { params: {} });
   },
+  genres: (cate) => {
+    const url =
+      "/genre" +
+      "/" +
+      category[cate] +
+      "/list" +
+      `?api_key=${configApi.apiKey}` +
+      "&language=en-US";
+    return axiosClient.get(url, { params: {} });
+  },
 };
 
 export default tmdbApi;
