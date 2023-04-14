@@ -2,7 +2,6 @@ import "./movie-card.scss";
 
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
-
 import { category } from "../../api/tmdbApi";
 import configApi from "../../api/configApi";
 
@@ -20,7 +19,9 @@ const MovieCard = (props) => {
           <i className="bx bx-play"></i>
         </Button>
       </div>
-      <h3>{item.title || item.name}</h3>
+      <h3 className="text-h3 font-bold dark:text-white text-black">
+        {item.title || item.name}
+      </h3>
     </Link>
   );
 };

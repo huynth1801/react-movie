@@ -6,14 +6,14 @@ import logo from "../../assets/img/netflix-icon-26.jpg";
 const Footer = () => {
   return (
     <div className="footer" style={{ backgroundImage: `$(${bg})` }}>
-      <div className="footer__content container">
+      <div className="footer__content containers">
         <div className="footer__content__logo">
-          <div className="logo">
+          <div className="logo dark:text-white text-black">
             <img src={logo} alt="" />
-            <Link to="/">NMovies</Link>
+            <Link to="/">Sunflix</Link>
           </div>
         </div>
-        <div className="footer__content__menus">
+        <div className="footer__content__menus dark:text-white text-black">
           <div className="footer__content__menu">
             <Link to="/">Home</Link>
             <Link to="/">Contact us</Link>

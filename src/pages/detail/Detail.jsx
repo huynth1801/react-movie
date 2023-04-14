@@ -45,32 +45,39 @@ const Detail = () => {
               ></div>
             </div>
             <div className="movie-content__info">
-              <h1 className="title">{item.title || item.name}</h1>
+              <h1 className="title text-[32px] dark:text-white text-black">
+                {item.title || item.name}
+              </h1>
               <div className="genres">
                 {item.genres &&
                   item.genres.slice(0, 5).map((genre, index) => (
                     // console.log(item.genres.slice(0, 5));
-                    <span key={index} className="genres__item">
+                    <span
+                      key={index}
+                      className="genres__item dark:text-white text-black dark:bg-black bg-white"
+                    >
                       {genre.name}
                     </span>
                   ))}
               </div>
-              <p className="overview">{item.overview}</p>
+              <p className="overview dark:text-white text-black">
+                {item.overview}
+              </p>
               <div className="cast">
                 <div className="section__header">
-                  <h2>Casts</h2>
+                  <h2 className="text-2xl dark:text-white text-black">Casts</h2>
                 </div>
                 <CastList id={item.id} />
               </div>
             </div>
           </div>
-          <div className="container">
-            <div className="section mb-3">
+          <div className="containers">
+            <div className="section mb-[3rem]">
               <VideoList id={item.id} />
             </div>
-            <div className="section mb-3">
-              <div className="section__header mb-2">
-                <h2>Similar</h2>
+            <div className="section mb-[3rem]">
+              <div className="section__header mb-[2rem]">
+                <h2 className="text-[24px]">Similar</h2>
               </div>
               <MovieList category={category} type="similar" id={item.id} />
             </div>

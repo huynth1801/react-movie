@@ -15,7 +15,7 @@ const Button = (props) => {
 export const OutlineButton = (props) => {
   return (
     <Button
-      className={`btn-outline ${props.className}`}
+      className={`btn-outline dark:border-white  ${props.className}`}
       onClick={props.onClick ? () => props.onClick() : null}
     >
       {props.children}

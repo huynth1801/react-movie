@@ -24,7 +24,9 @@ const CastList = (props) => {
               backgroundImage: `url(${configApi.w500Image(item.profile_path)})`,
             }}
           ></div>
-          <p className="casts__item__name">{item.name}</p>
+          <p className="casts__item__name dark:text-white text-black dark:bg-black">
+            {item.name}
+          </p>
         </div>
       ))}
     </div>

@@ -83,18 +83,28 @@ const HeroSlideItem = (props) => {
   };
   return (
     <div
-      className={`hero-slide__item ${props.className}`}
+      className={`hero-slide__item ${props.className} before:bg-white before:bg-opacity-40 after:bg-gradient-to-t after:from-white dark:before:bg-black dark:before:bg-opacity-40 dark:after:bg-gradient-to-t dark:after:from-black`}
       style={{ backgroundImage: `url(${background})` }}
     >
-      <div className="hero-slide__item__content container">
-        <div className="hero-slide__item__content__info">
-          <h2 className="title">{item.title}</h2>
-          <div className="overview">{item.overview}</div>
-          <div className="btns">
-            <Button onClick={() => navigate("/movie/" + item.id)}>
+      <div className="hero-slide__item__content containers">
+        <div className="hero-slide__item__content__info ">
+          <h2 className="title text-2xl font-bold text-black dark:text-white">
+            {item.title}
+          </h2>
+          <div className="overview text-black dark:text-white">
+            {item.overview}
+          </div>
+          <div className="btns ">
+            <Button
+              onClick={() => navigate("/movie/" + item.id)}
+              className="text-black dark:text-white"
+            >
               Watch now
             </Button>
-            <OutlineButton onClick={setModalActive}>
+            <OutlineButton
+              onClick={setModalActive}
+              className="text-black hover:bg-black dark:text-white dark:hover:bg-white dark:hover:text-red-500 "
+            >
               Watch trailer
             </OutlineButton>
           </div>

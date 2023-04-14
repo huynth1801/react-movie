@@ -4,7 +4,6 @@ import Button, { OutlineButton } from "../Button/Button";
 import tmdbApi, { category, movieType, tvType } from "../../api/tmdbApi";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import GenreCard from "../GenreCard/GenreCard";
 import "./movie-grid.scss";
 
 const MovieGrid = (props) => {
@@ -65,6 +64,7 @@ const MovieGrid = (props) => {
     setItems([...items, ...response.results]);
     setPage(page + 1);
   };
+
   return (
     <>
       <div className="section mb-3">
@@ -79,9 +79,10 @@ const MovieGrid = (props) => {
           <MovieCard category={props.category} item={item} key={index} />
         ))}
       </div>
+
       {page < totalPage ? (
         <div className="movie-grid__loadmore">
-          <OutlineButton className="small" onClick={loadMore}>
+          <OutlineButton className="small hover:bg-white" onClick={loadMore}>
             Load More
           </OutlineButton>
         </div>
@@ -124,7 +125,7 @@ const MovieSearch = (props) => {
         value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
       />
-      <Button className="small" onClick={goToSearch}>
+      <Button className="small dark:text-white text-black" onClick={goToSearch}>
         Search
       </Button>
     </div>
@@ -133,57 +134,55 @@ const MovieSearch = (props) => {
 
 const MovieFilter = (props) => {
   const [movie, setMovie] = useState([]);
+  const [movieProp, setMovieProp] = useState([]);
   const [activeGenre, setActiveGenre] = useState("All");
   const [genreId, setGenreId] = useState(0);
-  // const [items, setItems] = useState()
-
-  // useEffect(() => {
-  //   // Get list movie and tv show
-  //   const getList = async () => {
-  //     let response = null;
-  //     if (activeGenre === "All") {
-  //       const params = {};
-  //       switch (props.category) {
-  //         case category.movie:
-  //           response = await tmdbApi.getMoviesList(movieType.upcoming, {
-  //             params,
-  //           });
-  //           break;
-  //         default:
-  //           response = await tmdbApi.getTvList(tvType.popular, { params });
-  //       }
-  //     } else {
-  //       response = await tmdbApi.genres(props.category, { params: {} });
-  //     }
-  //     setMovie(response.results);
-  //   };
-  //   getList();
-  // }, [props.category]);
+  console.log(movieProp);
 
   useEffect(() => {
     const getGenres = async () => {
       const response = await tmdbApi.genres(props.category, { params: {} });
-      console.log(response.id);
+      // console.log(response.id);
       setMovie(response);
     };
     getGenres();
   }, [props.category]);
 
   useEffect(() => {
+    const getList = async () => {
+      let response = null;
+      if (genreId === 0) {
+        const params = {};
+        switch (props.category) {
+          case category.movie:
+            response = await tmdbApi.getMoviesList(movieType.upcoming, {
+              params,
+            });
+            break;
+          default:
+            response = await tmdbApi.getTvList(tvType.popular, { params });
+        }
+      } else {
+        // const params = { query: keyword, page: 1 };
+        response = movieProp.filter((item) => item.genre_ids.includes(genreId));
+      }
+      setMovieProp(response.results);
+    };
     if (activeGenre === "All") {
       setGenreId(0);
     } else {
       const filtered = movie.genres.filter((item) => item.name === activeGenre);
       setGenreId(filtered[0].id);
-      console.log(genreId);
+      // console.log(genreId);
     }
-  }, [genreId, activeGenre]);
+    getList();
+  }, [props.category, genreId, activeGenre]);
 
   return (
     <div className="movie-filter">
       <select
         name="types"
-        id="type"
+        className="dark:text-white text-black"
         onChange={(e) => setActiveGenre(e.target.value)}
       >
         <option value="">All</option>
@@ -194,7 +193,6 @@ const MovieFilter = (props) => {
             </option>
           ))}
       </select>
-      {/* <div className="movie-grid">{}</div> */}
     </div>
   );
 };
