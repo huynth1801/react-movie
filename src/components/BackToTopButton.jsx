@@ -24,12 +24,12 @@ const BackToTopButton = () => {
     <div>
       {backToTopButton && (
         <button
-          className="fixed bottom-8 right-4 z-130
-            text-5xl font-bold text-black rounded-full 
-            dark:text-white md:bottom-8 md:right-8
-            opacity-60 hover:opacity-100 
-            hover:bg-red-500 
-            hover:text-white
+          className="z-150 fixed bottom-8 right-4
+            rounded-full text-6xl font-bold text-black opacity-60 
+            hover:bg-red-500 hover:text-white hover:opacity-100
+            dark:text-white md:bottom-8 
+            md:right-8 
+            md:text-4xl
            "
           onClick={scrollUp}
         >

@@ -62,17 +62,17 @@ const Header = () => {
   return (
     <div ref={headerRef} className="header">
       <div className="header__wrap containers">
-        <div className="logo dark:text-white text-black">
+        <div className="logo text-black dark:text-white">
           <img src={logo} alt="website logo" />
           <Link to="/">Sunflix</Link>
         </div>
         <div
-          className="text-4xl cursor-pointer ml-auto md:hidden mobile-menu-btn dark:text-white text-black"
+          className="mobile-menu-btn ml-auto cursor-pointer text-4xl text-black dark:text-white md:hidden"
           onClick={handleMenu}
         >
           <AiOutlineMenu />
         </div>
-        <ul className="header__nav dark:text-white text-black">
+        <ul className="header__nav text-black dark:text-white">
           {headerNav.map((e, index) => (
             <li key={index} className={`${index === active ? "active" : ""}`}>
               <Link to={e.path}>{e.display}</Link>
@@ -80,16 +80,16 @@ const Header = () => {
           ))}
           {!isDarkMode ? (
             <FaMoon
-              size={"30px"}
+              size={"40px"}
               color="yellow"
-              className="cursor-pointer "
+              className="cursor-pointer rounded-full p-2 shadow-inner shadow-yellow-300"
               onClick={() => toggleDarkMode(!isDarkMode)}
             />
           ) : (
             <BsSunFill
-              size={"30px"}
+              size={"40px"}
               color="orange"
-              className="cursor-pointer"
+              className="cursor-pointer rounded-full p-2 shadow-inner shadow-orange-300"
               onClick={() => toggleDarkMode(!isDarkMode)}
             />
           )}
@@ -98,21 +98,21 @@ const Header = () => {
 
       <nav
         aria-label="Sidebar"
-        className={`fixed h-screen shadow-lg dark:bg-zinc-800 bg-white
-                    dark:text-white inset-y-0  left-0 w-80 
-                    transition duration-500 ease transform ease-in-out ${
+        className={`ease fixed inset-y-0 left-0 h-screen
+                    w-80 transform  bg-white shadow-lg 
+                    transition duration-500 ease-in-out dark:bg-zinc-800 dark:text-white ${
                       open ? null : "-translate-x-full"
                     }`}
       >
-        <div className="h-full px-2 py-4 overflow-y-auto dark:text-white text-black">
+        <div className="h-full overflow-y-auto px-2 py-4 text-black dark:text-white">
           <ul>
             {headerNav.map((item, index) => (
               <li
                 key={index}
-                className="mx-8 my-8  text-3xl font-semibold flex items-center "
+                className="mx-8 my-8  flex items-center text-3xl font-semibold "
                 onClick={handleMenu}
               >
-                <div className="md:hidden mx-4">{item.icon}</div>
+                <div className="mx-4 md:hidden">{item.icon}</div>
                 <Link to={item.path}>{item.display}</Link>
               </li>
             ))}
@@ -121,14 +121,14 @@ const Header = () => {
               <FaMoon
                 size={"30px"}
                 color="yellow"
-                className="cursor-pointer mx-auto"
+                className="mx-auto cursor-pointer"
                 onClick={() => toggleDarkMode(!isDarkMode)}
               />
             ) : (
               <BsSunFill
                 size={"30px"}
                 color="orange"
-                className="cursor-pointer mx-auto"
+                className="mx-auto cursor-pointer"
                 onClick={() => toggleDarkMode(!isDarkMode)}
               />
             )}
