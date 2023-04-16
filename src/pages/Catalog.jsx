@@ -7,7 +7,7 @@ const Catalog = () => {
   const { category } = useParams();
   return (
     <>
-      <div className="container">
+      <div className="containers">
         <PageHeader>
           {category === cate.movie ? "Movies" : "TV Series"}
         </PageHeader>

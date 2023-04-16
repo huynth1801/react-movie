@@ -100,9 +100,8 @@ const Header = () => {
         aria-label="Sidebar"
         className={`ease fixed inset-y-0 left-0 h-screen
                     w-80 transform  bg-white shadow-lg 
-                    transition duration-500 ease-in-out dark:bg-zinc-800 dark:text-white ${
-                      open ? null : "-translate-x-full"
-                    }`}
+                    transition duration-500 ease-in-out dark:bg-zinc-800 
+                    dark:text-white ${open ? null : "-translate-x-full"}`}
       >
         <div className="h-full overflow-y-auto px-2 py-4 text-black dark:text-white">
           <ul>
