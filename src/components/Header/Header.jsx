@@ -117,19 +117,32 @@ const Header = () => {
             ))}
 
             {!isDarkMode ? (
-              <FaMoon
-                size={"30px"}
-                color="yellow"
-                className="mx-auto cursor-pointer"
-                onClick={() => toggleDarkMode(!isDarkMode)}
-              />
+              <div
+                className="flex flex-col items-center
+               "
+              >
+                <FaMoon
+                  size={"40px"}
+                  color="yellow"
+                  className=" cursor-pointer rounded-full p-2 shadow-inner shadow-yellow-300"
+                  onClick={() => toggleDarkMode(!isDarkMode)}
+                />
+                <h1 className=" mt-6 text-3xl font-semibold text-black dark:text-white">
+                  Dark Mode
+                </h1>
+              </div>
             ) : (
-              <BsSunFill
-                size={"30px"}
-                color="orange"
-                className="mx-auto cursor-pointer"
-                onClick={() => toggleDarkMode(!isDarkMode)}
-              />
+              <div className="flex flex-col items-center">
+                <BsSunFill
+                  size={"40px"}
+                  color="orange"
+                  className="mx-auto cursor-pointer rounded-full p-2 shadow-inner shadow-yellow-300"
+                  onClick={() => toggleDarkMode(!isDarkMode)}
+                />
+                <h1 className=" mt-6 text-3xl font-semibold text-black dark:text-white">
+                  Light mode
+                </h1>
+              </div>
             )}
           </ul>
         </div>
