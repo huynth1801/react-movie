@@ -19,7 +19,7 @@ const MovieCard = (props) => {
           <i className="bx bx-play"></i>
         </Button>
       </div>
-      <h3 className="text-h3 font-bold dark:text-white text-black">
+      <h3 className="text-[16px] font-bold text-black dark:text-white md:text-h3">
         {item.title || item.name}
       </h3>
     </Link>

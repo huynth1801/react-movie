@@ -11,13 +11,13 @@ const Home = () => {
       <div className="containers">
         <div className="section mb-[3rem] ">
           <div className="section__header mb-[2rem]">
-            <h2 className="text-2xl font-bold dark:text-white text-black">
+            <h2 className="text-[18px] font-bold text-black dark:text-white md:text-2xl">
               Trending Movies
             </h2>
             <Link to="/movie">
               <OutlineButton
-                className="small dark:text-white  
-                          dark:hover:bg-white dark:hover:text-red-500 text-black "
+                className="small text-black  
+                          dark:text-white dark:hover:bg-white dark:hover:text-red-500 "
               >
                 View more
               </OutlineButton>
@@ -28,13 +28,13 @@ const Home = () => {
 
         <div className="section mb-[3rem] ">
           <div className="section__header mb-[2rem]">
-            <h2 className="text-2xl font-bold dark:text-white text-black">
+            <h2 className="text-[18px] font-bold text-black dark:text-white md:text-2xl">
               Top Rated Movies
             </h2>
             <Link to="/movie">
               <OutlineButton
-                className="small dark:text-white  
-                          dark:hover:bg-white dark:hover:text-red-500 text-black "
+                className="small text-black  
+                          dark:text-white dark:hover:bg-white dark:hover:text-red-500 "
               >
                 View more
               </OutlineButton>
@@ -45,13 +45,13 @@ const Home = () => {
 
         <div className="section mb-[3rem] ">
           <div className="section__header mb-[2rem]">
-            <h2 className="text-2xl font-bold dark:text-white text-black">
+            <h2 className="text-[18px] font-bold text-black dark:text-white md:text-2xl">
               Trending TV
             </h2>
             <Link to="/tv">
               <OutlineButton
-                className="small dark:text-white  
-                          dark:hover:bg-white dark:hover:text-red-500 text-black "
+                className="small text-black  
+                          dark:text-white dark:hover:bg-white dark:hover:text-red-500 "
               >
                 View more
               </OutlineButton>
@@ -62,13 +62,13 @@ const Home = () => {
 
         <div className="section mb-[3rem] ">
           <div className="section__header mb-[2rem]">
-            <h2 className="text-2xl font-bold dark:text-white text-black">
+            <h2 className="text-[18px] font-bold text-black dark:text-white md:text-2xl">
               Top Rated TV
             </h2>
             <Link to="/tv">
               <OutlineButton
-                className="small dark:text-white  
-                          dark:hover:bg-white dark:hover:text-red-500 text-black "
+                className="small text-black  
+                          dark:text-white dark:hover:bg-white dark:hover:text-red-500 "
               >
                 View more
               </OutlineButton>
